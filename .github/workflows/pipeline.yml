@@ -1,0 +1,16 @@
+name: initiial-pipeline-test
+on: 
+  push:
+    branches:
+      - feature/setup-ci-pipeline
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/Checkout@v4
+
+      - name: Run test comand
+        run: echo "Github actions is working"
