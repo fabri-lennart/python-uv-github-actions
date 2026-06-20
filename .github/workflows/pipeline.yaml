@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: uv pip install . --system
+        run: uv sync
 
       - name: Run data script
-        run: echo "python main.py"
+        run: echo "uv run python main.py"
