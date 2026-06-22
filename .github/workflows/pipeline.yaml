@@ -1,10 +1,12 @@
-name: initiial-pipeline-ci 
-  on:
-    push:
-      branches:
-       - feature/github-actions-dependencies
-       - develop
-       - main
+name: initiial-pipeline-ci
+
+on:
+  push:
+    branches:
+      - feature/github-actions-dependencies
+      - feature/github-actions-dependencies
+      - develop
+      - main
 
 jobs:
   linter:
