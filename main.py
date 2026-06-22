@@ -1,21 +1,11 @@
-import httpx
+# lets import the etl modules to run the data extraction and transformation
+from etl.extract import extract_data
+from etl.transformm import transform_data
+from etl.load import upload_csv
 
-def fetch_data():
-    print("Starting data download...")
-    url = "https://jsonplaceholder.typicode.com/users/1"
-
-    with httpx.Client() as client:
-        response = client.get(url)
-
-        if response.status_code == 200:
-            user = response.json()
-            print("Data successfully retrieved:")
-            print(f"Name: {user['name']}")
-            print(f"Email: {user['email']}")
-            print(f"Company: {user['company']['name']}")
-        else:
-            print(f"Error fetching API: {response.status_code}")
-            exit(1)
+def run_pipeline():
+    extract_data()
+    transform_data()
 
 if __name__ == "__main__":
-    fetch_data()
+    run_pipeline()
