@@ -7,6 +7,21 @@ on:
       - main
 
 jobs:
+  linter:
+    runs on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: setup-uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verificar sintaxis y formato
+        run: uv run ruff check .
+
   run-pipeline:
     runs-on: ubuntu-latest
 
