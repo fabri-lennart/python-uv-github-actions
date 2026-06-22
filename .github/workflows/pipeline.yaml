@@ -1,18 +1,17 @@
-name: initiial-pipeline-ci
-on:
-  push:
-    branches:
-      - feature/setup-ci-pipeline
-      - develop
-      - main
+name: initiial-pipeline-ci 
+  on:
+    push:
+      branches:
+       - feature/github-actions-dependencies
+       - develop
+       - main
 
 jobs:
   linter:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/Checkout@v4
 
       - name: setup-uv
         uses: astral-sh/setup-uv@v5
@@ -24,6 +23,7 @@ jobs:
 
   run-pipeline:
     runs-on: ubuntu-latest
+    needs: linter
 
     steps:
       - name: Checkout code
